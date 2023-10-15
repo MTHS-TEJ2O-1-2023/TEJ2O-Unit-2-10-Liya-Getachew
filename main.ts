@@ -6,10 +6,11 @@
 */
 
 basic.clearScreen()
-basic.showIcon(IconNames.Heart)
+basic.showIcon(IconNames.Umbrella)
 
 // variables
 let neopixelStrip: neopixel.Strip = null
+let amountOfLight: number
 
 // cleanup
 neopixelStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
@@ -18,42 +19,38 @@ neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Black))
 neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Black))
 neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Black))
 neopixelStrip.show()
-basic.showIcon(IconNames.Heart)
 
 input.onButtonPressed(Button.A, function () {
-  if (input.lightLevel() <= 51) {
+  amountOfLight = input.lightLevel()
+  if (amountOfLight <= 51) {
     neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
     neopixelStrip.show()
-    basic.showIcon(IconNames.Heart)
   }
 
-  if (input.lightLevel() > 52) {
+  if (amountOfLight > 52) {
     neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Blue))
-    basic.showIcon(IconNames.Heart)
     neopixelStrip.show()
   }
 
-  if (input.lightLevel() <= 104) {
+  if (amountOfLight > 104) {
     neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Blue))
     neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Blue))
-    basic.showIcon(IconNames.Heart)
     neopixelStrip.show()
   }
 
-  if (input.lightLevel() > 156) {
+  if (amountOfLight> 156) {
     neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Blue))
     neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Blue))
     neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Blue))
-    basic.showIcon(IconNames.Heart)
     neopixelStrip.show()
   }
 
-  if (input.lightLevel() > 208) {
+  if (amountOfLight > 208) {
     neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Blue))
     neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Blue))
     neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Blue))
     neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Blue))
-    basic.showIcon(IconNames.Heart)
     neopixelStrip.show()
   }
+  basic.showIcon(IconNames.Duck)
 })
