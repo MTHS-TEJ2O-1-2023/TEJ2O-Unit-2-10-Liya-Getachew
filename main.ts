@@ -2,7 +2,7 @@
  *
  * Created by: Liya Getachew
  * Created on: Oct 2023
- * This program uses light level to determine how many leds should turn on.
+ * This program uses light level turn on Neopixels.
 */
 
 basic.clearScreen()
@@ -27,7 +27,7 @@ input.onButtonPressed(Button.A, function () {
     neopixelStrip.show()
   }
 
-  if (amountOfLight > 52) {
+  if (amountOfLight >= 52) {
     neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Blue))
     neopixelStrip.show()
   }
