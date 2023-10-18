@@ -25,6 +25,7 @@ print(neopixel_strip[2])
 print(neopixel_strip[3])
 neopixel_strip.show()
 
+# loop
 while True:
     if button_a.is_pressed():
         display.clear()
